@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.2.3",
+    "http-server": "^14.1.1"
+  },
+  "name": "pokedex",
+  "description": "Mini proyecto de Pokedex a partir de la API de PokeApi para R/Argentina Programa",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fabrizio112/Pokedex.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Fabrizio112/Pokedex/issues"
+  },
+  "homepage": "https://github.com/Fabrizio112/Pokedex#readme",
+  "devDependencies": {
+    "cypress": "^12.8.1"
+  }
+}
