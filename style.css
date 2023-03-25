@@ -147,6 +147,7 @@ p {
 
 .container p {
     font-size: 1.5rem;
+    letter-spacing: 2px;
 }
 
 .img-card {
