@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "bootstrap": "^5.2.3",
-    "http-server": "^14.1.1"
+    "http-server": "^14.1.1",
+    "jquery": "^3.6.4"
   },
   "name": "pokedex",
   "description": "Mini proyecto de Pokedex a partir de la API de PokeApi para R/Argentina Programa",
