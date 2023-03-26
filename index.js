@@ -100,7 +100,7 @@ function elegirElPokemon(a, b) {
                     <div class="card-bottom">
                         <div class="mt-5">
                         <h1 class="titulo-card text-uppercase fs-3"># ${pokemon.id} ${pokemon.name}</h1>
-                    <div class="py-3 ">
+                    <div class="py-3 " id="text-card">
                         <span class="mx-3 fw-bolder">Peso: ${pokemon.weight / 10}kg</span>
                         <span class="fw-bolder">Altura : ${pokemon.height / 10}m</span>
                     </div>
