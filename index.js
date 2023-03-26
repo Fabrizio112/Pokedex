@@ -18,6 +18,9 @@ let pokemonesDeKantoMax = 151;
 $generacionKanto.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeKantoMin, pokemonesDeKantoMax)
+    algoritmoDeOrdenamiento();
+
+
 })
 
 let $generacionJohto = document.querySelector("#johto")
@@ -26,6 +29,7 @@ let pokemonesDeJohtoMax = 251;
 $generacionJohto.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeJohtoMin, pokemonesDeJohtoMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionHoenn = document.querySelector("#hoenn")
@@ -34,6 +38,7 @@ let pokemonesDeHoennMax = 386;
 $generacionHoenn.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeHoennMin, pokemonesDeHoennMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionSinnoh = document.querySelector("#sinnoh")
@@ -42,6 +47,7 @@ let pokemonesDeSinnohMax = 493;
 $generacionSinnoh.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeSinnohMin, pokemonesDeSinnohMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionTeselia = document.querySelector("#teselia")
@@ -50,6 +56,7 @@ let pokemonesDeTeseliaMax = 649;
 $generacionTeselia.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeTeseliaMin, pokemonesDeTeseliaMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionKalos = document.querySelector("#kalos")
@@ -58,6 +65,7 @@ let pokemonesDeKalosMax = 721;
 $generacionKalos.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeKalosMin, pokemonesDeKalosMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionAlola = document.querySelector("#alola")
@@ -66,6 +74,7 @@ let pokemonesDeAlolaMax = 809;
 $generacionAlola.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeAlolaMin, pokemonesDeAlolaMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionGalar = document.querySelector("#galar")
@@ -74,6 +83,7 @@ let pokemonesDeGalarMax = 902;
 $generacionGalar.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDeGalarMin, pokemonesDeGalarMax)
+    algoritmoDeOrdenamiento()
 })
 
 let $generacionPaldea = document.querySelector("#paldea")
@@ -82,6 +92,7 @@ let pokemonesDePaldeaMax = 1010;
 $generacionPaldea.addEventListener("click", () => {
     eliminarCards();
     elegirElPokemon(pokemonesDePaldeaMin, pokemonesDePaldeaMax)
+    algoritmoDeOrdenamiento()
 })
 
 function elegirElPokemon(a, b) {
@@ -93,7 +104,7 @@ function elegirElPokemon(a, b) {
                     `<button class="boton-tipos${i} mx-1 ${type.type.name}">${(type.type.name).toUpperCase()}</button>`);
                 tipos = tipos.join("");
                 $(".contenedor-de-divs").append(`
-                <div class="card">
+                <div class="card" name="${i}">
                     <div class="card-top${i}">
                         <img src="${pokemon.sprites.front_default}" class="img-card">
                     </div>
@@ -299,4 +310,21 @@ function comprobarLaClaseDelBotonDeTipos() {
 
 }
 
+function algoritmoDeOrdenamiento() {
+    let $allCards = document.querySelectorAll(".card")
+    for (let i = 0; i < $allCards.length; i++) {
+        for (let p = 0; p < ($allCards.length - 1); p++) {
+            if (Number($allCards[i].getAttribute("name")) > Number($allCards[i + 1].getAttribute("name"))) {
+                let aux = $allCards[i]
+                $allCards[i] = $allCards[i + 1]
+                $allCards[i + 1] = aux
+            }
+        }
+    }
+
+    for (let i = 0; i < $allCards.length; i++) {
+        $allCards[i].style.order = i
+    }
+
+}
 ///Falta cambiar el background del boton y de la tarjeta del pokemon de acuerdo a la clase que posean
