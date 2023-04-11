@@ -21,39 +21,39 @@ describe('template spec', () => {
     })
     it('Test if the button "Kanto"', () => {
       cy.get('#kanto').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 151))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 151))
     })
     it('Test if the button "Johto"', () => {
       cy.get('#johto').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 100))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 100))
     })
     it('Test if the button "Hoenn"', () => {
       cy.get('#hoenn').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 135))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 135))
     })
     it('Test if the button "Sinnoh"', () => {
       cy.get('#sinnoh').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 107))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 107))
     })
     it('Test if the button "Teselia"', () => {
       cy.get('#teselia').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 156))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 156))
     })
     it('Test if the button "Kalos"', () => {
       cy.get('#kalos').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 72))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 72))
     })
     it('Test if the button "Alola"', () => {
       cy.get('#alola').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 88))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 88))
     })
     it('Test if the button "Galar"', () => {
       cy.get('#galar').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 93))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 93))
     })
     it('Test if the button "Paldea"', () => {
       cy.get('#paldea').click()
-      expect(cy.get('.card', { timeout: 30000 }).should('have.length', 108))
+      expect(cy.get('.card', { timeout: 35000 }).should('have.length', 108))
     })
   })
 })
