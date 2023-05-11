@@ -5,7 +5,7 @@ export function elegirElPokemon (a, b) {
       .then(response => response.json())
       .then(pokemon => {
         let tipos = pokemon.types.map(type =>
-                      `<button class="boton-tipos${i} mx-1 ${type.type.name}">${(type.type.name).toUpperCase()}</button>`)
+          `<button class="boton-tipos${i} mx-1 ${type.type.name}">${(type.type.name).toUpperCase()}</button>`)
         tipos = tipos.join('')
         $('.contenedor-de-divs').append(`
                   <div class="card" name="${i}">
