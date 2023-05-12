@@ -1,43 +1,47 @@
 
-export function elegirElPokemon (a, b) {
-  for (let i = a; i <= b; i++) {
-    fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
-      .then(response => response.json())
-      .then(pokemon => {
-        let tipos = pokemon.types.map(type =>
-          `<button class="boton-tipos${i} mx-1 ${type.type.name}">${(type.type.name).toUpperCase()}</button>`)
-        tipos = tipos.join('')
-        $('.contenedor-de-divs').append(`
-                  <div class="card" name="${i}">
-                      <div class="card-top${i}">
-                          <img src="${pokemon.sprites.front_default}" class="img-card">
-                      </div>
-                      <div class="card-bottom">
-                          <div class="mt-5">
-                          <h1 class="titulo-card text-uppercase fs-3"># ${pokemon.id} ${pokemon.name}</h1>
-                      <div class="py-3 " id="text-card">
-                          <span class="mx-3 fw-bolder">Peso: ${pokemon.weight / 10}kg</span>
-                          <span class="fw-bolder">Altura : ${pokemon.height / 10}m</span>
-                      </div>
-                          <div class="contenedor-de-botones-tipos py-3">
-                              ${tipos}
-                          </div>
-                      </div>
-                      </div> 
-                  </div>
-                  
-          `)
-        comprobarLaClaseDelBotonDeTipos()
-        cambiarElBackgroundCardTop(i)
-      })
-  }
+export async function traerDatosDelPokemon (i) {
+  const DATA = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`)
+  const POKEMON = await DATA.json()
+  console.log(POKEMON)
+  return POKEMON
 }
+
+export function completarLosTipos (pokemon, i) {
+  let tipos = pokemon.types.map(tipo =>
+    `<button class="boton-tipos${i} mx-1 ${tipo.type.name}">${(tipo.type.name).toUpperCase()}</button>`)
+  tipos = tipos.join('')
+  return tipos
+}
+
+export function completarELPokemon (pokemon, i, tipos) {
+  $('.contenedor-de-divs').append(`
+  <div class="card" name="${i}">
+      <div class="card-top${i}">
+          <img src="${pokemon.sprites.front_default}" class="img-card">
+      </div>
+      <div class="card-bottom">
+          <div class="mt-5">
+          <h1 class="titulo-card text-uppercase fs-3"># ${pokemon.id} ${pokemon.name}</h1>
+      <div class="py-3 " id="text-card">
+          <span class="mx-3 fw-bolder">Peso: ${pokemon.weight / 10}kg</span>
+          <span class="fw-bolder">Altura : ${pokemon.height / 10}m</span>
+      </div>
+          <div class="contenedor-de-botones-tipos py-3">
+              ${tipos}
+          </div>
+      </div>
+      </div> 
+  </div>
+  
+`)
+}
+
 export function eliminarCards () {
   document.querySelectorAll('.card').forEach(card => {
     card.remove()
   })
 }
-function comprobarLaClaseDelBotonDeTipos () {
+export function comprobarLaClaseDelBotonDeTipos () {
   const boton = document.querySelectorAll('[class*="boton-tipos"]')
   boton.forEach(bot => {
     if (bot.classList.contains('grass')) {
@@ -96,7 +100,7 @@ function comprobarLaClaseDelBotonDeTipos () {
     }
   })
 }
-function cambiarElBackgroundCardTop (i) {
+export function cambiarElBackgroundCardTop (i) {
   const boton = document.querySelectorAll(`.boton-tipos${i}`)
   boton.forEach(bot => {
     if (bot.classList.item(2) === ('grass')) {
